@@ -1,0 +1,14 @@
+# 本地验证用 overlay：把微信插件插进一个既有 profile 的组合。
+# 用法（在 deepseek-harness checkout 内）：
+#   node --import tsx/esm apps/cli/src/bin.ts --profile web --patch ./examples/wechat-overlay.yml
+# `name` 用绝对路径直接指向本仓库的构建产物，绕过 `dsh plugin add` 的 pnpm 步骤。
+#
+# cwd 不填时默认落在 ~/.dsh-plugin-wechat/workspace（自动创建），不碰 DSH 源码目录；
+# 也可显式指到你的工作区：
+#   cwd: /Users/code41/Work/Ox2g/AI/wechat-workspace
+- insert:
+    - id: im-weixin
+      name: /Users/code41/Work/Ox2g/AI/dsh-plugin-wechat/lib/index.js
+      config:
+        provider: deepseek-official
+        model: deepseek-v4-flash

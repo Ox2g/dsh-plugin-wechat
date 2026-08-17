@@ -1,0 +1,4 @@
+# pnpm 11 的运行时设置迁移到了 pnpm-workspace.yaml（package.json 里的 "pnpm" 字段已废弃）。
+# 只有显式放行的包才允许跑安装脚本；esbuild 需要 postinstall 下载平台二进制。
+allowBuilds:
+  esbuild: true

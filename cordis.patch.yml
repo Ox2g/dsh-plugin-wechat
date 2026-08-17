@@ -1,0 +1,9 @@
+# 插件 bundle 的 patch 层：`dsh plugin add` 安装本包后，这一层把微信插件
+# 插进 profile 的组合，安装即启用。provider/model 按你的部署改；也可删除
+# 这两个字段、改用预设/其他层的默认模型。
+- insert:
+    - id: im-weixin
+      name: '@ox2g/dsh-plugin-wechat'
+      config:
+        provider: deepseek-official
+        model: deepseek-v4-pro

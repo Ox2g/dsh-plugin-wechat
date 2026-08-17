@@ -1,0 +1,63 @@
+{
+  "name": "@ox2g/dsh-plugin-wechat",
+  "version": "0.0.0",
+  "private": true,
+  "description": "DeepSeek Harness WeChat channel plugin (ilink bot gateway), built on the Tencent/openclaw-weixin protocol layer.",
+  "license": "MIT",
+  "type": "module",
+  "ilink_appid": "bot",
+  "packageManager": "pnpm@11.21.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=11.21.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "clean": "rm -rf lib dist coverage",
+    "login": "tsx bin/login.ts",
+    "prepublishOnly": "tsc -p tsconfig.json"
+  },
+  "optionalDependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "silk-wasm": "^3.7.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/schemastery": "*",
+    "@deepseek-ai/dsh-agent": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-session": "*",
+    "@deepseek-ai/dsh-session-persistence": "*",
+    "@deepseek-ai/dsh-user-approval": "*",
+    "@deepseek-ai/dsh-user-questions": "*"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "link:../deepseek-harness/vendor/cordis",
+    "@deepseek-ai/cordis-plugin-include": "link:../deepseek-harness/vendor/include",
+    "@deepseek-ai/cordis-plugin-loader": "link:../deepseek-harness/vendor/loader",
+    "@deepseek-ai/dsh-agent": "link:../deepseek-harness/packages/core/agent",
+    "@deepseek-ai/dsh-llm": "link:../deepseek-harness/packages/llm/llm",
+    "@deepseek-ai/dsh-session": "link:../deepseek-harness/packages/core/session",
+    "@deepseek-ai/dsh-session-persistence": "link:../deepseek-harness/packages/session/session-persistence",
+    "@deepseek-ai/dsh-user-approval": "link:../deepseek-harness/packages/interaction/user-approval",
+    "@deepseek-ai/dsh-user-questions": "link:../deepseek-harness/packages/interaction/user-questions",
+    "@deepseek-ai/schemastery": "link:../deepseek-harness/vendor/schemastery",
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
